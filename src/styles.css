@@ -1,0 +1,245 @@
+.reactResize {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 16px 8px 16px;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #efefef;
+  box-shadow: 0rem 0.25rem 1rem RGB(0 0 0 / 10%);
+}
+
+.headline {
+  color: #5f6368;
+  margin-bottom: 0;
+}
+
+.selectButton {
+  display: flex;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  padding: 10px 0;
+  cursor: pointer;
+  background-color: #2a3eae;
+  color: white;
+  border-radius: 4px;
+  width: 80px;
+  border: none;
+}
+
+.uploadButton {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 11.5px 0;
+  cursor: pointer;
+  background-color: #00791f;
+  color: white;
+  border-radius: 4px;
+  width: 80px;
+  border: none;
+}
+
+.uploadButtonDisabled {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 11.5px 0;
+  cursor: pointer;
+  background-color: #00791f;
+  opacity: 0.5;
+  color: white;
+  border-radius: 4px;
+  width: 80px;
+  border: none;
+}
+
+.downloadButton {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+  cursor: pointer;
+  background-color: #bf5500;
+  color: white;
+  border-radius: 4px;
+  width: 80px;
+  border: none;
+  text-decoration: none;
+}
+
+.fileInput {
+  display: none;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+.selectedName {
+  font-size: 12px;
+  padding-left: 6px;
+  color: #5f6368;
+}
+
+.inputs {
+  padding: 8px 0;
+}
+
+.radios {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  gap: 0.25rem;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+}
+
+.radioText {
+  margin-top: 1px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #5f6368;
+  margin-left: 4px;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+@media only screen and (max-width: 400px) {
+  .inputWrapper {
+    gap: 0px;
+  }
+}
+
+.sizeInput {
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  background-color: white;
+  padding: 12px 20px 12px 12px;
+  max-width: 500px;
+  color: black !important;
+}
+
+.pxLabel {
+  align-self: flex-end;
+  font-size: 12px;
+  font-style: italic;
+  margin-bottom: 2px;
+}
+
+.inputControl {
+  display: flex;
+  flex-direction: column;
+}
+
+.dimensionLabel {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.margin {
+  margin-top: 16px;
+}
+
+.previewContainer {
+  margin-top: -28px;
+  padding: 12px 0;
+}
+
+.previewImg {
+  height: 80px;
+  width: 80px;
+  border-radius: 4px;
+}
+
+.loadingContainer {
+  display: flex;
+  align-items: flex-end;
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  height: 28px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: 2px;
+  border: 2px solid #0069c4;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #0069c4 transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.powered {
+  display: flex;
+  align-items: center;
+  padding: 12px 0px 6px 0;
+  gap: 0.25rem;
+}
+
+.algoLink {
+  font-size: 10px;
+  color: #5f6368;
+  text-decoration: none;
+  font-style: italic;
+}
+
+.rotateImg {
+  height: 20px;
+  cursor: pointer;
+}
+
+.rotateContainer {
+  display: flex;
+  gap: .5rem;
+  padding: 6px 0;
+  margin-left: 10px;
+}
+
+.error {
+  font-size: 12px;
+  padding-top: 8px;
+  color: #c30404;
+  font-style: italic;
+}

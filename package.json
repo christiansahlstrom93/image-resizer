@@ -1,0 +1,29 @@
+{
+  "name": "reactjs-image-resizer",
+  "version": "1.0.7",
+  "description": "React widget for resizing and rotate images",
+  "main": "./dist/index.js",
+  "types": "index.d.ts",
+  "homepage": "https://algobook.info/",
+  "keywords": [
+    "react image resize",
+    "resize images",
+    "rotate image",
+    "widget"
+  ],
+  "scripts": {
+    "build": "babel src/ -d dist --copy-files"
+  },
+  "author": "Christian Frahm Sahlström",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-react": "^7.18.6",
+    "babel-loader": "^9.1.2"
+  }
+}
