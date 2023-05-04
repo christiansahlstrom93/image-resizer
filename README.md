@@ -4,6 +4,10 @@ Widget for resizing and rotating images, for React applications. The widget is f
 
 Select an image from your local disk, and start editing. When you are done, click on **Resize** button and the image will call our own **API** that will resize the image and provide a download link.
 
+### Other free projects and APIs
+
+For more cool and free open source projects and APIs, check out our [website](https://algobook.info/opensource)
+
 ## Example of widget - default design
 
 ### No image selected
