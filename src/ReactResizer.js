@@ -232,30 +232,40 @@ export const ReactResizer = (props) => {
       return rotation;
     };
 
-    const renderPreview = (imgSrc) => (
-      <div className="previewContainer">
-        <img
-          className="previewImg"
-          alt="preview"
-          src={imgSrc}
-          style={{ transform: `rotate(${translateRotation()}deg)` }}
-        />
-        <div className="rotateContainer">
+    const renderPreview = (imgSrc) => {
+      const translatedDegree = translateRotation();
+
+      return (
+        <div className="previewContainer">
           <img
-            className="rotateImg"
+            className="previewImg"
             alt="preview"
-            src={rotateLeft}
-            onClick={() => onRotationClick(false)}
+            src={imgSrc}
+            style={{
+              transform: `rotate(${translatedDegree}deg)`,
+              height:
+                translatedDegree === 90 || translatedDegree === 270
+                  ? "80px"
+                  : "auto",
+            }}
           />
-          <img
-            className="rotateImg"
-            alt="preview"
-            src={rotateRight}
-            onClick={() => onRotationClick(true)}
-          />
+          <div className="rotateContainer">
+            <img
+              className="rotateImg"
+              alt="preview"
+              src={rotateLeft}
+              onClick={() => onRotationClick(false)}
+            />
+            <img
+              className="rotateImg"
+              alt="preview"
+              src={rotateRight}
+              onClick={() => onRotationClick(true)}
+            />
+          </div>
         </div>
-      </div>
-    );
+      );
+    };
 
     if (!resized && previewImg) {
       return renderPreview(previewImg);
