@@ -232,10 +232,12 @@
 }
 
 .rotateContainer {
+  position: relative;
   display: flex;
   gap: 0.5rem;
   padding: 6px 0;
   margin-left: 10px;
+  z-index: 9;
 }
 
 .error {
