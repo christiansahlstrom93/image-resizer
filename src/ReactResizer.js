@@ -243,7 +243,7 @@ export const ReactResizer = (props) => {
             src={imgSrc}
             style={{
               transform: `rotate(${translatedDegree}deg)`,
-              height:
+              width:
                 translatedDegree === 90 || translatedDegree === 270
                   ? "80px"
                   : "auto",
