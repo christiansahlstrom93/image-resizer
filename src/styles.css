@@ -167,7 +167,8 @@
 
 .previewImg {
   height: 80px;
-  width: 80px;
+  width: auto;
+  max-width: 100%;
   border-radius: 4px;
 }
 
@@ -232,7 +233,7 @@
 
 .rotateContainer {
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
   padding: 6px 0;
   margin-left: 10px;
 }
