@@ -7,6 +7,11 @@ declare module "reactjs-image-resizer" {
     heightText?: string;
     widthText?: string;
     downloadText?: string;
+    selectButtonStyle?: any;
+    resizeButtonStyle?: any;
+    downloadButtonStyle?: any;
+    rotateEnabled?: boolean;
+    clearEnabled?: boolean;
   }
   const ReactResizer: (props: IReactResizer) => JSX.Element;
 }
