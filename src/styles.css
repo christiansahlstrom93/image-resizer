@@ -23,7 +23,6 @@
 
 .headline {
   color: #000;
-  margin-bottom: 0;
 }
 
 .selectButton {
@@ -96,7 +95,8 @@
 .controls {
   display: flex;
   flex-direction: column;
-  padding: 8px 0;
+  padding-bottom: 8px;
+  margin-top: -8px;
 }
 
 .selectedName {
