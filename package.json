@@ -1,6 +1,6 @@
 {
   "name": "reactjs-image-resizer",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "React widget for resizing and rotate images",
   "main": "./dist/index.js",
   "types": "index.d.ts",
