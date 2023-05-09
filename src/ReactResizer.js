@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import rotateLeft from "./rotate-left.svg";
 import rotateRight from "./rotate-right.svg";
+import clear from "./clear.svg";
 import "./styles.css";
 
 const TWENTYFIVE_PERCENT = 25;
@@ -16,6 +17,11 @@ export const ReactResizer = (props) => {
     heightText = "Height",
     widthText = "Width",
     downloadText = "Download",
+    selectButtonStyle = {},
+    resizeButtonStyle = {},
+    downloadButtonStyle = {},
+    rotateEnabled = true,
+    clearEnabled = true,
   } = props;
   const [selectedFile, setSelectedFile] = useState(null);
   const [resized, setResized] = useState(null);
@@ -44,6 +50,15 @@ export const ReactResizer = (props) => {
     };
   }, []);
 
+  const clearForm = () => {
+    setSelectedFile(null);
+    setRotation(0);
+    setError("");
+    setTotRotation(0);
+    setPreviewImg(null);
+    setResized(null);
+  };
+
   const onFileChoose = (event) => {
     const file = event.target.files[0];
     const tempUrl = URL.createObjectURL(file);
@@ -60,6 +75,7 @@ export const ReactResizer = (props) => {
       setDimensions({ auto: 0, width: img.width, height: img.height });
       URL.revokeObjectURL(tempUrl);
       setResized(null);
+      event.target.value = "";
     };
 
     const reader = new FileReader();
@@ -158,7 +174,7 @@ export const ReactResizer = (props) => {
                 className="radio"
                 id="25"
                 type="radio"
-                style={{ height: "20px", width: "20px" }}
+                style={{ height: "24px", width: "24px" }}
                 onChange={() => onRadioClicked(TWENTYFIVE_PERCENT)}
               />
               <span className="radioText">25%</span>
@@ -169,7 +185,7 @@ export const ReactResizer = (props) => {
                 className="radio"
                 id="50"
                 type="radio"
-                style={{ height: "20px", width: "20px" }}
+                style={{ height: "24px", width: "24px" }}
                 onChange={() => onRadioClicked(FIFTY_PERCENT)}
               />
               <span className="radioText">50%</span>
@@ -180,7 +196,7 @@ export const ReactResizer = (props) => {
                 className="radio"
                 id="75"
                 type="radio"
-                style={{ height: "20px", width: "20px" }}
+                style={{ height: "24px", width: "24px" }}
                 onChange={() => onRadioClicked(SEVENTYFIVE_PERCENT)}
               />
               <span className="radioText">75%</span>
@@ -249,20 +265,22 @@ export const ReactResizer = (props) => {
                   : "auto",
             }}
           />
-          <div className="rotateContainer">
-            <img
-              className="rotateImg"
-              alt="preview"
-              src={rotateLeft}
-              onClick={() => onRotationClick(false)}
-            />
-            <img
-              className="rotateImg"
-              alt="preview"
-              src={rotateRight}
-              onClick={() => onRotationClick(true)}
-            />
-          </div>
+          {rotateEnabled ? (
+            <div className="rotateContainer">
+              <img
+                className="rotateImg"
+                alt="preview"
+                src={rotateLeft}
+                onClick={() => onRotationClick(false)}
+              />
+              <img
+                className="rotateImg"
+                alt="preview"
+                src={rotateRight}
+                onClick={() => onRotationClick(true)}
+              />
+            </div>
+          ) : null}
         </div>
       );
     };
@@ -280,7 +298,17 @@ export const ReactResizer = (props) => {
 
   return (
     <div className={`reactResize ${className}`}>
-      <h3 className="headline">{label}</h3>
+      <div className="algobook_resize_headline">
+        <h3 className="headline">{label}</h3>
+        {selectedFile && clearEnabled ? (
+          <img
+            className="algobook_clear_img"
+            alt="clearimg"
+            src={clear}
+            onClick={clearForm}
+          />
+        ) : null}
+      </div>
       {renderControls()}
       {renderImg()}
       {loading ? (
@@ -295,7 +323,11 @@ export const ReactResizer = (props) => {
       ) : null}
 
       <div className={`buttonContainer ${!selectedFile ? "margin" : ""}`}>
-        <label className="selectButton" htmlFor="fileInput">
+        <label
+          className="selectButton"
+          htmlFor="fileInput"
+          style={selectButtonStyle}
+        >
           {selectBtnText}
           <input
             id="fileInput"
@@ -306,6 +338,7 @@ export const ReactResizer = (props) => {
           />
         </label>
         <button
+          style={resizeButtonStyle}
           className={
             !selectedFile || loading ? "uploadButtonDisabled" : "uploadButton"
           }
@@ -316,9 +349,10 @@ export const ReactResizer = (props) => {
         </button>
         {resized && !loading ? (
           <a
+            style={downloadButtonStyle}
             className="downloadButton"
             href={resized}
-            download={`resized_${selectedFile.data.name}`}
+            download={`resized_${selectedFile?.data?.name}`}
           >
             {downloadText}
           </a>

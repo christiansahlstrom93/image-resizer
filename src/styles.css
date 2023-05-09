@@ -1,5 +1,6 @@
 .reactResize {
   display: flex;
+  width: 100%;
   flex-direction: column;
   padding: 4px 16px 8px 16px;
   background-color: white;
@@ -8,8 +9,20 @@
   box-shadow: 0rem 0.25rem 1rem RGB(0 0 0 / 10%);
 }
 
+.algobook_resize_headline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.algobook_clear_img {
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+
 .headline {
-  color: #5f6368;
+  color: #000;
   margin-bottom: 0;
 }
 
@@ -88,6 +101,7 @@
 
 .selectedName {
   font-size: 12px;
+  font-style: italic;
   padding-left: 6px;
   color: #5f6368;
 }
@@ -144,6 +158,7 @@
   font-size: 12px;
   font-style: italic;
   margin-bottom: 2px;
+  color: #000;
 }
 
 .inputControl {
@@ -154,6 +169,7 @@
 .dimensionLabel {
   font-size: 12px;
   font-weight: bold;
+  color: #000;
 }
 
 .margin {
@@ -161,15 +177,20 @@
 }
 
 .previewContainer {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: -28px;
   padding: 12px 0;
 }
 
 .previewImg {
-  height: 80px;
+  height: 100px;
+  padding: 12px 0;
   width: auto;
   max-width: 100%;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .loadingContainer {
@@ -236,7 +257,6 @@
   display: flex;
   gap: 0.5rem;
   padding: 6px 0;
-  margin-left: 10px;
   z-index: 9;
 }
 
