@@ -252,17 +252,13 @@ export const ReactResizer = (props) => {
       const translatedDegree = translateRotation();
 
       return (
-        <div className="previewContainer">
+        <div className="previewContainer_Algobook">
           <img
-            className="previewImg"
+            className="previewImg_Algobook"
             alt="preview"
             src={imgSrc}
             style={{
               transform: `rotate(${translatedDegree}deg)`,
-              width:
-                translatedDegree === 90 || translatedDegree === 270
-                  ? "80px"
-                  : "auto",
             }}
           />
           {rotateEnabled ? (
