@@ -9,7 +9,8 @@
     "react image resize",
     "resize images",
     "rotate image",
-    "widget"
+    "widget",
+    "free image resize API"
   ],
   "scripts": {
     "build": "babel src/ -d dist --copy-files"
