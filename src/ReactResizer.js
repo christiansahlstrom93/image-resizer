@@ -22,6 +22,7 @@ export const ReactResizer = (props) => {
     downloadButtonStyle = {},
     rotateEnabled = true,
     clearEnabled = true,
+    Image,
   } = props;
   const [selectedFile, setSelectedFile] = useState(null);
   const [resized, setResized] = useState(null);
@@ -49,6 +50,29 @@ export const ReactResizer = (props) => {
       }
     };
   }, []);
+
+  const image = (src, alt, className, style = {}, onClick = () => "") => {
+    if (Image) {
+      return (
+        <Image
+          src={src}
+          alt={alt}
+          className={className}
+          style={style}
+          onClick={onClick}
+        />
+      );
+    }
+    return (
+      <img
+        src={src}
+        alt={alt}
+        className={className}
+        style={style}
+        onClick={onClick}
+      />
+    );
+  };
 
   const clearForm = () => {
     setSelectedFile(null);
@@ -263,18 +287,12 @@ export const ReactResizer = (props) => {
           />
           {rotateEnabled ? (
             <div className="rotateContainer">
-              <img
-                className="rotateImg"
-                alt="preview"
-                src={rotateLeft}
-                onClick={() => onRotationClick(false)}
-              />
-              <img
-                className="rotateImg"
-                alt="preview"
-                src={rotateRight}
-                onClick={() => onRotationClick(true)}
-              />
+              {image(rotateLeft, "preview", "rotateImg", {}, () =>
+                onRotationClick(false)
+              )}
+              {image(rotateRight, "preview", "rotateImg", {}, () =>
+                onRotationClick(true)
+              )}
             </div>
           ) : null}
         </div>
@@ -296,14 +314,9 @@ export const ReactResizer = (props) => {
     <div className={`reactResize ${className}`}>
       <div className="algobook_resize_headline">
         <h3 className="headline">{label}</h3>
-        {selectedFile && clearEnabled ? (
-          <img
-            className="algobook_clear_img"
-            alt="clearimg"
-            src={clear}
-            onClick={clearForm}
-          />
-        ) : null}
+        {selectedFile && clearEnabled
+          ? image(clear, "clear", "algobook_clear_img", {}, clearForm)
+          : null}
       </div>
       {renderControls()}
       {renderImg()}
