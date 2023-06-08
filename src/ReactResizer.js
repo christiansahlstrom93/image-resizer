@@ -22,7 +22,7 @@ export const ReactResizer = (props) => {
     downloadButtonStyle = {},
     rotateEnabled = true,
     clearEnabled = true,
-    Image,
+    ImageComp,
   } = props;
   const [selectedFile, setSelectedFile] = useState(null);
   const [resized, setResized] = useState(null);
@@ -52,9 +52,9 @@ export const ReactResizer = (props) => {
   }, []);
 
   const image = (src, alt, className, style = {}, onClick = () => "") => {
-    if (Image) {
+    if (ImageComp) {
       return (
-        <Image
+        <ImageComp
           src={src}
           alt={alt}
           className={className}
